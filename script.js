@@ -1,3 +1,4 @@
+
 import * as THREE from 'https://unpkg.com/three@0.150.1/build/three.module.js';
 import { GLTFLoader } from 'https://unpkg.com/three@0.150.1/examples/jsm/loaders/GLTFLoader.js';
 
@@ -16,11 +17,11 @@ light.position.set(5, 5, 5);
 scene.add(light);
 
 const loader = new GLTFLoader();
-let mixer;
 const clock = new THREE.Clock();
+let mixer = null;
 
 loader.load(
-  'butterfly.glb',
+  './butterfly.glb',
   (gltf) => {
     const model = gltf.scene;
     scene.add(model);
