@@ -13,19 +13,22 @@ light.position.set(5, 5, 5);
 scene.add(light);
 
 const loader = new THREE.GLTFLoader();
-let mixer;
 const clock = new THREE.Clock();
+let mixer;
 
 loader.load(
   './butterfly.glb',
-  (gltf) => {
+  function (gltf) {
     const model = gltf.scene;
     scene.add(model);
+
     mixer = new THREE.AnimationMixer(model);
-    gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
+    gltf.animations.forEach((clip) => {
+      mixer.clipAction(clip).play();
+    });
   },
   undefined,
-  (error) => {
+  function (error) {
     console.error('GLB 로딩 실패:', error);
   }
 );
