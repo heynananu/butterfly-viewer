@@ -1,3 +1,7 @@
+
+import * as THREE from './three.min.js';
+import { GLTFLoader } from './GLTFLoader.min.js';
+
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x222222);
 
@@ -12,9 +16,9 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(5, 5, 5);
 scene.add(light);
 
-const loader = new THREE.GLTFLoader();
-const clock = new THREE.Clock();
+const loader = new GLTFLoader();
 let mixer;
+const clock = new THREE.Clock();
 
 loader.load(
   './butterfly.glb',
