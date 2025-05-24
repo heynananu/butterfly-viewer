@@ -1,7 +1,3 @@
-
-import * as THREE from 'https://unpkg.com/three@0.150.1/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.150.1/examples/jsm/loaders/GLTFLoader.js';
-
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x222222);
 
@@ -16,9 +12,9 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(5, 5, 5);
 scene.add(light);
 
-const loader = new GLTFLoader();
+const loader = new THREE.GLTFLoader();
+let mixer;
 const clock = new THREE.Clock();
-let mixer = null;
 
 loader.load(
   './butterfly.glb',
