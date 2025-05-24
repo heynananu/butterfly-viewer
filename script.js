@@ -18,17 +18,14 @@ let mixer;
 
 loader.load(
   './butterfly.glb',
-  function (gltf) {
+  (gltf) => {
     const model = gltf.scene;
     scene.add(model);
-
     mixer = new THREE.AnimationMixer(model);
-    gltf.animations.forEach((clip) => {
-      mixer.clipAction(clip).play();
-    });
+    gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
   },
   undefined,
-  function (error) {
+  (error) => {
     console.error('GLB 로딩 실패:', error);
   }
 );
